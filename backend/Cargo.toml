@@ -1,0 +1,41 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "models"
+path = "src/lib.rs"
+
+[[bin]]
+name = "web"
+path = "src/bin/web/web.rs"
+
+[[bin]]
+name = "bot"
+path = "src/bin/bot/bot.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+lazy_static = "1.4"
+once_cell = "1.8"
+log = "0.4"
+pretty_env_logger = "0.4"
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+thiserror = "1.0"
+# JSON libs
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+# Web libs
+warp = "0.3"
+# DB Libs
+sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres" ] }
+sqlb = "0.0.8"
+dotenv = "0.15.0"
+teloxide = { version = "0.12", features = ["macros"] }
+
+
+[dev-dependencies]
+anyhow = "1"
